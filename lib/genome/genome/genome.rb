@@ -10,6 +10,7 @@ module Genome
     # Create a new instance of Genome, requires a stream to fasta-formatted
     # text. stores entire genome and features.
     def initialize handle
+      @path = handle.path
       @scaffolds = Dna.new(handle, format: :fasta).to_a
       @features = []
     end
@@ -18,16 +19,7 @@ module Genome
     # returns path to temporary file
     # file is deleted after block
     def fasta &block
-      file = Tempfile.new 'genome'
-
-      File.open(file, 'w') do |handle|
-        @scaffolds.each do |record|
-          handle.puts record
-        end
-      end
-
-      yield file.path
-      file.close
+      yield @path
     end
 
     def inspect
