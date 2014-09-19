@@ -12,7 +12,7 @@ describe Genome::Pipeline::ProdigalFilter do
   end
 
   it '.transform' do
-    #expect(filter.transform).to be_a(Genome::Genome)
+    expect(filter.transform).to be_a(Genome::Genome)
   end
 
 end
