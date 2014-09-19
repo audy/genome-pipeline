@@ -26,7 +26,7 @@ class ProdigalFilter < Filter
 
   attr_reader :result
 
-  def transform!
+  def transform
 
     out_file = Tempfile.new 'prodigal'
 
@@ -39,6 +39,8 @@ class ProdigalFilter < Filter
     @result = Features.from_gff(out_file)
 
     out_file.close
+
+    return @result
 
   end
 end

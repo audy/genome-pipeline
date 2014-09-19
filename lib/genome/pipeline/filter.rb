@@ -12,6 +12,14 @@ module Genome
         @genome = genome
       end
 
+      def transform
+        @genome
+      end
+
+      def inspect
+        "#<#{self.class} #{@result} results genome=#{@genome}>"
+      end
+
     end
 
   end

@@ -7,7 +7,7 @@ module Genome
 
       attr_reader :result
 
-      def transform!
+      def transform
 
         out_file = Tempfile.new 'prodigal'
 
@@ -21,6 +21,7 @@ module Genome
 
         out_file.close
 
+        super
       end
     end
 
