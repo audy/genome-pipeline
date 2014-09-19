@@ -14,6 +14,49 @@ pipeline = Genome::Pipeline.new([ Filter::PRODIGAL,
 annotated_genome = pipeline[genome]
 ```
 
+## Filters
+
+Pipelines are made up of filters. Here is a simple filter that predicts
+amino-acid coding sequences using Prodigal
+
+```ruby
+require 'tempfile'
+
+module Genome
+  class Pipeline
+
+    class ProdigalFilter < Filter
+
+      attr_reader :result
+
+      def transform!
+
+        out_file = Tempfile.new 'prodigal'
+
+        # run prodigal
+        # read GFF and add add features to `genome`
+        @genome.fasta do |path|
+          `prodigal -f gff -i #{path} > #{out_file.path}`
+        end
+
+        @result = Features.from_gff(out_file)
+
+        out_file.close
+
+      end
+    end
+
+  end
+end
+```
+
+## Genome Object
+
+Genomes are currently read from FASTA files and stored as objects. My future
+plan is to save to an XML similar to NCBI GFF XML format that way the output
+from one filter can always be piped directly into the input of another
+(basically, the same way as HTML-pipeline works since HTML is just XML).
+
 ## License
 
 The MIT License (MIT)
