@@ -1,9 +1,13 @@
+require 'bundler'
+
+Bundler.require
+
 module Genome
+  autoload :Genome, 'genome/genome/genome.rb'
 
   class Pipeline
-    autoload :Genome, 'genome.rb'
-    autoload :Filter, 'pipeline/filter.rb'
-    autoload :ProdigalFilter, 'pipeline/prodigal_filter.rb'
+    autoload :Filter, 'genome/pipeline/filter.rb'
+    autoload :ProdigalFilter, 'genome/pipeline/prodigal_filter.rb'
   end
 
 end

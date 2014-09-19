@@ -1,5 +1,6 @@
 module Genome
   module Pipeline
+
     class Prodigal < Pipeline
       def initialize options = {}
       end
@@ -10,5 +11,6 @@ module Genome
         `prodigal -f gff -i data/dorei728.fasta > prodigal.gff`
       end
     end
+
   end
 end
