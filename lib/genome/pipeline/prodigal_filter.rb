@@ -1,14 +1,20 @@
 module Genome
-  module Pipeline
+  class Pipeline
 
-    class Prodigal < Pipeline
-      def initialize options = {}
-      end
+    class ProdigalFilter < Filter
 
-      def transform genome
+      attr_reader :result
+
+      def transform
+
         # run prodigal
         # read GFF and add add features to `genome`
-        `prodigal -f gff -i data/dorei728.fasta > prodigal.gff`
+        @genome.fasta do |path|
+          `prodigal -f gff -i #{path} > prodigal.gff`
+        end
+
+        @result = File.readlines('prodigal.gff')
+
       end
     end
 

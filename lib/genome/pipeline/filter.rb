@@ -1,14 +1,15 @@
 module Genome
-  module Pipeline
+  class Pipeline
 
     class Filter
 
-      def initialize options = {}
-        self.options = options
-      end
+      class InvalidGenomeException < StandardError; end
 
-      def transform genome
-        # this method gets overrided by actual pipelines
+      attr_reader :genome
+      attr_reader :result
+
+      def initialize genome
+        @genome = genome
       end
 
     end

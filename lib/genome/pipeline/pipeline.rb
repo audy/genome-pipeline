@@ -1,6 +1,6 @@
 module Genome
 
-  class Pipeline
+  module Pipeline
   end
 
 end
