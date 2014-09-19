@@ -1,9 +1,11 @@
 require 'tempfile'
+
 module Genome
 
   class Genome
 
     attr_accessor :features
+    attr_reader :scaffolds
 
     # Create a new instance of Genome, requires a stream to fasta-formatted
     # text. stores entire genome and features.
@@ -26,6 +28,10 @@ module Genome
 
       yield file.path
       file.close
+    end
+
+    def inspect
+      "#<#{self.class} #{@scaffolds.size} scaffolds, #{@features.size} features>"
     end
 
   end

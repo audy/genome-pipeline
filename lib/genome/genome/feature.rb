@@ -14,7 +14,9 @@ module Genome
       @info     = properties[:info]
     end
 
-    def from_gff_line(line)
+    def self.from_gff_line(line)
+      fields = line.strip.split
+
       scaffold_name = fields[0]
       source        = fields[1]
       type          = fields[2]
@@ -37,6 +39,14 @@ module Genome
       self.new(dat)
     end
 
+  end
+
+  class Features
+    def self.from_gff handle
+      handle.map do |line|
+        Feature.from_gff_line(line)
+      end
+    end
   end
 
 end

@@ -7,11 +7,11 @@ Inspired by [HTML::Pipeline](https://github.com/jch/html-pipeline).
 ```ruby
 genome = Genome.new(File.open('genome.fasta'))
 
-pipeline = Genome::Pipeline.new([ Annotate::PHMMER,
-                                  Annotate::tRNAscan
+pipeline = Genome::Pipeline.new([ Filter::PRODIGAL,
+                                  Filter::tRNAscan
                                ])
 
-annotated_genome = pipeline.run(genome)
+annotated_genome = pipeline[genome]
 ```
 
 ## License

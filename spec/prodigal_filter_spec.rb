@@ -11,9 +11,9 @@ describe Genome::Pipeline::ProdigalFilter do
     expect{filter}.not_to raise_error
   end
 
-  it '.transform' do
-    filter.transform
-    expect(filter.result).not_to eq(nil)
+  it '.transform!' do
+    expect{filter.transform!}.not_to raise_error
+    expect(filter.result).to be_a(Array)
   end
 
 end

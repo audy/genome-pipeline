@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'dna'
+gem 'pry'
 
 group :development do
   gem 'rake'

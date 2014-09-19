@@ -1,3 +1,5 @@
+require 'tempfile'
+
 module Genome
   class Pipeline
 
@@ -5,15 +7,19 @@ module Genome
 
       attr_reader :result
 
-      def transform
+      def transform!
+
+        out_file = Tempfile.new 'prodigal'
 
         # run prodigal
         # read GFF and add add features to `genome`
         @genome.fasta do |path|
-          `prodigal -f gff -i #{path} > prodigal.gff`
+          `prodigal -f gff -i #{path} > #{out_file.path}`
         end
 
-        @result = File.readlines('prodigal.gff')
+        @result = Features.from_gff(out_file)
+
+        out_file.close
 
       end
     end
