@@ -15,6 +15,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^test})
   gem.require_paths = ["lib"]
 
+  gem.cert_chain = ['certs/audy.cert']
+  gem.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $0 =~ /gem\z/
 
   gem.post_install_message = <<msg
 -------------------------------------------------
