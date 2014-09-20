@@ -13,6 +13,16 @@ pipeline = Genome::Pipeline.new Filter::PRODIGAL,
 annotated_genome = pipeline[genome]
 ```
 
+# Installation
+
+With RubyGems:
+
+`gem install -P HighSecurity genome-pipeline`
+
+With Bundler:
+
+`gem 'genome-pipeline', '~> 0.0.1'`
+
 ## Filters
 
 Pipelines are made up of filters. Here is a simple filter that predicts
