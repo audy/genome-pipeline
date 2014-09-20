@@ -21,7 +21,9 @@ With RubyGems:
 
 With Bundler:
 
-`gem 'genome-pipeline', '~> 0.0.1'`
+```ruby
+gem 'genome-pipeline', '~> 0.0.1'
+```
 
 ## Filters
 
