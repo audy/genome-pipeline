@@ -17,7 +17,9 @@ annotated_genome = pipeline[genome]
 
 With RubyGems:
 
-`gem install -P HighSecurity genome-pipeline`
+```bash
+$ gem install -P HighSecurity genome-pipeline
+```
 
 With Bundler:
 
