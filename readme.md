@@ -1,6 +1,6 @@
 # Genome::Pipeline
 
-Annotate or do other things to Bacterial genomes.
+Genome processing filters and utilities
 
 Inspired by [HTML::Pipeline](https://github.com/jch/html-pipeline).
 
