@@ -1,4 +1,5 @@
 require 'tempfile'
+require 'open3'
 
 module Genome
   class Pipeline
@@ -13,11 +14,13 @@ module Genome
 
         # run prodigal
         # read GFF and add add features to `genome`
-        @genome.fasta do |path|
-          `prodigal -f gff -i #{path} > #{out_file.path}`
-        end
+        @result = 
+          @genome.fasta do |path|
+            stdin, stdout, stderr = Open3.popen3("prodigal -f gff -i #{path}")
+            Features.from_gff(stdout.readlines)
+          end
 
-        @result = Features.from_gff(out_file)
+        @genome.features << @result
 
         out_file.close
 
