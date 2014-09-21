@@ -12,7 +12,10 @@ describe Genome::Pipeline::ProdigalFilter do
   end
 
   it '.transform' do
-    expect(filter.transform).to be_a(Genome::Genome)
+    filtered_genome = filter.transform
+    expect(filtered_genome).to be_a(Genome::Genome)
+    expect(filtered_genome.features).not_to eq(nil)
+    expect(filtered_genome.features.size).not_to eq(0)
   end
 
 end
