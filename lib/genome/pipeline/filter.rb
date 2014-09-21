@@ -14,6 +14,7 @@ module Genome
       end
 
       def transform
+        @genome.features << @result
         @genome
       end
 
