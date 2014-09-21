@@ -20,8 +20,6 @@ module Genome
             Features.from_gff(stdout.readlines)
           end
 
-        @genome.features << @result
-
         out_file.close
 
         super
