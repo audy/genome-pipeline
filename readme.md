@@ -56,6 +56,33 @@ class ProdigalFilter < Filter
 end
 ```
 
+## List of Filters
+
+### Gene Prediction
+
+- Prodigal [XX]
+
+### TODO
+
+feature finding software:
+
+(act on genome sequence)
+
+- Augustus
+- tRNAscan
+- rnammer
+- snap
+- prokka
+- barrnap
+- ARAGORN
+- repeatscout
+- repeatmasker
+- trf
+
+Filters that act on features:
+
+- Quality Filter (remove features below a confidence threshold)
+
 ## Genome Object
 
 Genomes are currently read from FASTA files and stored as objects. My future
