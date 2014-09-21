@@ -9,7 +9,8 @@ module Genome
       attr_reader :result
 
       def initialize genome
-        @genome = genome
+        # store a deep copy of genome.
+        @genome = Marshal.load(Marshal.dump(genome))
       end
 
       def transform
