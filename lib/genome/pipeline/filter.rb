@@ -19,7 +19,7 @@ module Genome
       end
 
       def inspect
-        "#<#{self.class} #{@result} results genome=#{@genome}>"
+        "#<#{self.class} #{@result.size} results genome=#{@genome}>"
       end
 
     end
