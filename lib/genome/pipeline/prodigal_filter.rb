@@ -1,4 +1,3 @@
-require 'tempfile'
 require 'open3'
 
 module Genome
@@ -6,24 +5,18 @@ module Genome
 
     class ProdigalFilter < Filter
 
-      attr_reader :result
-
       def transform
-
-        out_file = Tempfile.new 'prodigal'
-
-        # run prodigal
-        # read GFF and add add features to `genome`
-        @result = 
-          @genome.fasta do |path|
-            stdin, stdout, stderr = Open3.popen3("prodigal -f gff -i #{path}")
-            Features.from_gff(stdout.readlines)
-          end
-
-        out_file.close
-
+        @result = run_prodigal
         super
       end
+
+      def run_prodigal
+        @genome.fasta do |path|
+          stdin, stdout, stderr = Open3.popen3("prodigal -f gff -i #{path}")
+          Features.from_gff(stdout.readlines)
+        end
+      end
+
     end
 
   end
