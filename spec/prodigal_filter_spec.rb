@@ -11,8 +11,8 @@ describe Genome::Pipeline::ProdigalFilter do
     expect{filter}.not_to raise_error
   end
 
-  it '.transform' do
-    filtered_genome = filter.transform
+  it '.call' do
+    filtered_genome = filter.call
     expect(filtered_genome).to be_a(Genome::Genome)
     expect(filtered_genome.features).not_to eq(nil)
     expect(filtered_genome.features.size).not_to eq(0)

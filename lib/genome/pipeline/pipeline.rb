@@ -10,7 +10,7 @@ module Genome
 
     def run genome
       @steps.each do |step|
-        genome = step.new(genome).transform
+        genome = step.new(genome).call
       end
       return genome
     end

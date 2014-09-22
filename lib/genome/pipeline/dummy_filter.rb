@@ -6,7 +6,7 @@ module Genome
 
     class DummyFilter < Filter
 
-      def transform
+      def call
         super
       end
 

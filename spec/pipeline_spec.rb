@@ -7,7 +7,7 @@ describe Genome::Pipeline do
 
   let(:test_filter) do
     class TestFilter < Genome::Pipeline::Filter
-      def transform
+      def call
         @genome.features << 'a dummy feature'
       end
     end
@@ -18,7 +18,7 @@ describe Genome::Pipeline do
     expect(Genome::Pipeline).to_not eq(nil)
   end
 
-  it 'can perform transformations on a Genome' do
+  it 'can perform callations on a Genome' do
     expect { pipeline.run(genome) }.not_to raise_error
     expect(pipeline.run(genome)).to be_a(Genome::Genome)
   end
@@ -30,7 +30,7 @@ describe Genome::Pipeline do
 
   # this belongs in filter_spec
   it '.run should not alter original features' do
-    test_filter.new(genome).transform
+    test_filter.new(genome).call
     expect(genome.features.size).to eq(0)
   end
 

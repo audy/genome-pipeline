@@ -9,8 +9,8 @@ describe Genome::Pipeline::Filter do
     expect(filter).to_not eq(nil)
   end
 
-  it '.transform should return a Genome' do
-    expect(filter.transform).to be_a(Genome::Genome)
+  it '.call should return a Genome' do
+    expect(filter.call).to be_a(Genome::Genome)
   end
 
   it 'can be created from Genome instance' do

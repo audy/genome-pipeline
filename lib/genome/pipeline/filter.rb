@@ -13,7 +13,7 @@ module Genome
         @genome = Marshal.load(Marshal.dump(genome))
       end
 
-      def transform
+      def call
         @genome.features << @result
         @genome
       end

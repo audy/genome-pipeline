@@ -5,7 +5,7 @@ module Genome
 
     class ProdigalFilter < Filter
 
-      def transform
+      def call
         @result = run_prodigal
         super
       end
