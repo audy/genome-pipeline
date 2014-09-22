@@ -11,6 +11,7 @@ module Genome
     autoload :Filter, 'genome/pipeline/filter.rb'
     autoload :DummyFilter, 'genome/pipeline/dummy_filter.rb'
     autoload :ProdigalFilter, 'genome/pipeline/prodigal_filter.rb'
+    autoload :ProkkaFilter, 'genome/pipeline/prokka_filter.rb'
   end
 
 end
