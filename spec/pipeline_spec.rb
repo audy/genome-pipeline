@@ -34,4 +34,9 @@ describe Genome::Pipeline do
     expect(genome.features.size).to eq(0)
   end
 
+  it '.run should save states' do
+    pipeline.run(genome)
+    expect(pipeline.states.size).to eq(1)
+  end
+
 end
