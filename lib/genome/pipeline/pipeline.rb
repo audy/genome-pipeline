@@ -3,16 +3,18 @@ module Genome
   class Pipeline
 
     attr_reader :steps
+    attr_reader :states
 
     def initialize *steps
       @steps = steps
+      @states = Array.new
     end
 
     def run genome
       @steps.each do |step|
-        genome = step.new(genome).call
+        @states << step.new(genome).call
       end
-      return genome
+      @states.last
     end
 
 
