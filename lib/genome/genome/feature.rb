@@ -44,7 +44,13 @@ module Genome
   class Features
     def self.from_gff handle
       handle.map do |line|
-        Feature.from_gff_line(line)
+        if line =~ /^##FASTA/ # end of GFF stuff (beginning of FASTA)
+          break
+        elsif line =~ /^#/ # comment
+          next
+        else
+          Feature.from_gff_line(line)
+        end
       end
     end
   end
