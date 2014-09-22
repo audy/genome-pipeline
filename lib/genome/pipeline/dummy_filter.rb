@@ -5,9 +5,11 @@ module Genome
     # used for testing
 
     class DummyFilter < Filter
+
       def transform
         super
       end
+
     end
 
   end
