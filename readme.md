@@ -64,9 +64,10 @@ feature finding software:
 
 - Augustus
 - tRNAscan
-- rnammer
-- snap
-- prokka
+- rnammer (closed source)
+- GeneMark (closed source)
+- snap (no Bacterial HMM)
+- prokka (see `add-prokka` branch)
 - barrnap
 - ARAGORN
 - repeatscout
