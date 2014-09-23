@@ -1,7 +1,3 @@
-require 'bundler'
-
-Bundler.require
-
 module Genome
 
   require 'genome/genome.rb'

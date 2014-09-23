@@ -1,3 +1,5 @@
+require 'dna'
+
 module Genome
 
   class Pipeline
