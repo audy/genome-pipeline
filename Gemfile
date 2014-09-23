@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'dna'
-gem 'pry'
+gemspec
 
 group :development do
   gem 'rake'
   gem 'bundler'
   gem 'yard'
+  gem 'pry'
 end
 
 group :test do
