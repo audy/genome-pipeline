@@ -5,7 +5,9 @@ Genome processing filters and utilities
 Inspired by [HTML::Pipeline](https://github.com/jch/html-pipeline).
 
 ```ruby
-genome = Genome.new(File.open('genome.fasta'))
+require 'genome/pipeline'
+
+genome = Genome::Genome.new(File.open('genome.fasta'))
 
 pipeline = Genome::Pipeline.new Filter::PRODIGAL,
                                 Filter::tRNAscan
@@ -24,7 +26,7 @@ $ gem install -P HighSecurity genome-pipeline
 With Bundler:
 
 ```ruby
-gem 'genome-pipeline', '~> 0.0.1'
+gem 'genome-pipeline'
 ```
 
 ## Filters
